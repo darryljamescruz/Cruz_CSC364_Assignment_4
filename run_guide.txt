@@ -1,0 +1,46 @@
+-here is the guide to run this-
+
+step 1: run tracker before the peers 
+python3 tracker.py
+
+step 2: run peer 1 on port 8001
+    python3 peer.py --host 127.0.0.1 --port 8001 --shared_dir ./peer1_files --tracker_host 127.0.0.1 --tracker_port 9000
+    ============================================================        ============================================================
+    OUTPUT
+    ============================================================        ============================================================
+    Peer c5f6704f-21ec-4247-ba20-1e68d95f8d09 is listening on 127.0.0.1:8001.
+    Registered with tracker.
+    Commands:
+    1. request <host> <port> <file_name> - Request a file from a peer
+    Enter a command:
+    ============================================================        ============================================================
+
+step 3: run peer 2 on port 8002
+    python3 peer.py --host 127.0.0.1 --port 8002 --shared_dir ./peer2_files --tracker_host 127.0.0.1 --tracker_port 9000
+    ============================================================        ============================================================
+    OUTPUT
+    ============================================================        ============================================================
+    Peer c5f6704f-21ec-4247-ba20-1e68d95f8d09 is listening on 127.0.0.1:8002.
+    Registered with tracker.
+    Commands:
+    1. request <host> <port> <file_name> - Request a file from a peer
+    Enter a command:
+    ============================================================        ============================================================
+
+
+step 4:
+type the following in peer 1 terminal
+    request 127.0.0.1 8002 file3.txt in the peer 1 terminal
+    ============================================================        ============================================================
+    OUTPUT
+    ============================================================        ============================================================
+    File file3.txt sent successfully.
+    File file3.txt downloaded successfully to ./peer2_files/downloads and verified.
+    ============================================================        ============================================================
+
+step 5:
+verify that the file was copied 
+    cat peer1_files/downloads/file3.txt
+
+step 6:
+you can do the same for the existing test_files in the peer#_shared directory.
